@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(152, 58, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(152, 58, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(152, 58, 69, 0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Force navbar visibility */
+.navbar-override {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+.navbar-override .hidden {
+  display: flex !important;
+}
+
+.navbar-override nav {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+.navbar-override nav > * {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+/* .transition-all{
+  color: black!important;
+} */
