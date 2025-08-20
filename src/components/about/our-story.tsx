@@ -246,26 +246,6 @@ export const OurStory = () => {
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
               As we prepare to open our doors, we invite you to be part of a movement that puts families first.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="px-8 py-4 bg-white text-pomegranate-700 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ color: '#983a45' }}
-              >
-                <Icon icon="lucide:bell" className="inline mr-2" />
-                Get Opening Updates
-              </motion.button>
-              <motion.button
-                className="px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Icon icon="lucide:heart" className="inline mr-2" />
-                Learn About Our Mission
-              </motion.button>
-            </div>
           </motion.div>
         </div>
       </div>

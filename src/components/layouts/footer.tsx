@@ -5,13 +5,31 @@ import { motion } from "framer-motion";
 
 export const Footer = () => {
   const [email, setEmail] = React.useState("");
+  const [isSubscribing, setIsSubscribing] = React.useState(false);
+  const [subscriptionStatus, setSubscriptionStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (email) {
-      // Handle newsletter signup
-      console.log("Newsletter signup:", email);
-      setEmail("");
-      // You can add your newsletter signup logic here
+      setIsSubscribing(true);
+      try {
+        // TODO: Replace with your preferred newsletter service integration
+        // Options: Mailchimp, ConvertKit, SendGrid, Google Sheets, etc.
+        console.log("Newsletter signup:", email);
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        setSubscriptionStatus('success');
+        setEmail("");
+        
+        // Reset status after 3 seconds
+        setTimeout(() => setSubscriptionStatus('idle'), 3000);
+      } catch (error) {
+        setSubscriptionStatus('error');
+        setTimeout(() => setSubscriptionStatus('idle'), 3000);
+      } finally {
+        setIsSubscribing(false);
+      }
     }
   };
 
@@ -73,7 +91,7 @@ export const Footer = () => {
               >
                 <h4 className="text-white font-semibold mb-4 text-lg">Quick Links</h4>
                 <div className="space-y-2">
-                  {['About Us', 'Locations', 'Menu', 'Events', 'Contact'].map((link, index) => (
+                  {['About Us', 'Our Coffee', 'Locations', 'Contact'].map((link, index) => (
                     <a 
                       key={index}
                       href="#" 
@@ -94,16 +112,17 @@ export const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h4 className="text-white font-semibold mb-4 text-lg">Connect</h4>
-                <div className="flex gap-3">
+                <h4 className="text-white font-semibold mb-4 text-lg">Connect With Us</h4>
+                <div className="flex gap-3 mb-4">
                   {[
-                    { icon: 'lucide:instagram', label: 'Instagram' },
-                    { icon: 'lucide:youtube', label: 'YouTube' },
-                    { icon: 'lucide:linkedin', label: 'LinkedIn' }
+                    { icon: 'lucide:instagram', label: 'Instagram', url: 'https://www.instagram.com/familyfirstcafe' },
+                    { icon: 'lucide:twitter', label: 'Twitter', url: 'https://x.com/familyfirstcafe' }
                   ].map((social, index) => (
                     <motion.a 
                       key={index}
-                      href="#" 
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 bg-white/15 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/25 transition-colors duration-300 group border border-white/20"
                       aria-label={social.label}
                       whileHover={{ scale: 1.1, y: -2 }}
@@ -113,6 +132,9 @@ export const Footer = () => {
                     </motion.a>
                   ))}
                 </div>
+                <p className="text-white/70 text-xs">
+                  Follow us for updates and family moments
+                </p>
               </motion.div>
             </div>
 
@@ -136,15 +158,26 @@ export const Footer = () => {
                       input: "text-white placeholder:text-white/60",
                       inputWrapper: "bg-white/10 border-white/20 hover:bg-white/15 focus-within:bg-white/15"
                     }}
+                    disabled={isSubscribing}
                   />
                   <Button
                     onClick={handleSubscribe}
                     className="w-full bg-white font-semibold hover:bg-rose-50 transition-all duration-300"
                     style={{ backgroundColor: 'white', color: '#983a45' }}
                     size="sm"
+                    disabled={isSubscribing || !email}
+                    isLoading={isSubscribing}
                   >
-                    Subscribe
+                    {subscriptionStatus === 'success' ? 'Subscribed!' : 
+                     subscriptionStatus === 'error' ? 'Try Again' : 
+                     'Subscribe'}
                   </Button>
+                  {subscriptionStatus === 'success' && (
+                    <p className="text-green-300 text-xs">Thank you for subscribing!</p>
+                  )}
+                  {subscriptionStatus === 'error' && (
+                    <p className="text-red-300 text-xs">Something went wrong. Please try again.</p>
+                  )}
                 </div>
               </motion.div>
             </div>

@@ -111,35 +111,6 @@ export const AppDownloadSection = () => {
                 </div>
               ))}
             </motion.div>
-
-            {/* Notify Me Button */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Button
-                size="lg"
-                className="bg-white font-semibold px-8 py-4 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:scale-105"
-                style={{ backgroundColor: 'white', color: '#983a45' }}
-                radius="lg"
-              >
-                <Icon icon="lucide:bell" className="text-xl mr-2" />
-                Notify Me When Ready
-              </Button>
-              
-              <Button
-                size="lg"
-                variant="bordered"
-                className="border-2 border-white text-white font-semibold px-8 py-4 text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                radius="lg"
-              >
-                <Icon icon="lucide:play-circle" className="text-xl mr-2" />
-                Watch Preview
-              </Button>
-            </motion.div>
           </motion.div>
 
           {/* App Preview Image Placeholder */}

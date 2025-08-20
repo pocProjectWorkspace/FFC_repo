@@ -121,33 +121,7 @@ export const AboutHero = () => {
             we offer a space to pause, share, and connect, one meal, one moment, and one conversation at a time.
           </motion.p>
 
-          {/* Call-to-Action Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Button 
-              size="lg"
-              radius="full"
-              className="bg-white text-pomegranate-700 hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              startContent={<Icon icon="lucide:map-pin" className="text-lg" />}
-            >
-              Find Our Cafés
-            </Button>
-            <Button 
-              size="lg"
-              radius="full"
-              variant="bordered"
-              className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-lg backdrop-blur-sm transition-all duration-300"
-              startContent={<Icon icon="lucide:play-circle" className="text-lg" />}
-            >
-              Watch Our Story
-            </Button>
-          </motion.div>
-
-          {/* Stats Section */}
+ {/* Stats Section */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}

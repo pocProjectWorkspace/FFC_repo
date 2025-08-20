@@ -23,37 +23,6 @@ export const CafesCTA = () => {
             Find your nearest Family First Café and start your bonding journey today.
           </h2>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
-            <Button 
-              size="lg"
-              className="bg-white font-semibold px-8 py-6 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-              style={{ backgroundColor: 'white', color: '#983a45' }}
-              radius="lg"
-              startContent={<Icon icon="lucide:map-pin" />}
-            >
-              Explore Our Cafés
-            </Button>
-            
-            <Button 
-              size="lg"
-              variant="bordered"
-              className="border-2 border-white text-white font-semibold px-8 py-6 text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-              radius="lg"
-              startContent={<Icon icon="lucide:smartphone" />}
-            >
-              Download Our App
-            </Button>
-
-            <Button 
-              size="lg"
-              variant="flat"
-              className="bg-white/15 backdrop-blur-sm text-white font-semibold px-8 py-6 text-lg hover:bg-white/25 transition-all duration-300 border border-white/30"
-              radius="lg"
-              startContent={<Icon icon="lucide:phone" />}
-            >
-              Contact Us
-            </Button>
-          </div>
         </motion.div>
       </div>
     </section>

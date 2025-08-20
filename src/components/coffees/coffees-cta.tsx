@@ -27,7 +27,7 @@ export const CoffeesCTA = () => {
             Discover the stories behind every cup and find your perfect blend for meaningful moments with family and friends.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {/* <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
               size="lg"
               className="bg-white font-semibold px-8 py-6 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
@@ -47,17 +47,7 @@ export const CoffeesCTA = () => {
             >
               Visit a Family First Café
             </Button>
-
-            <Button 
-              size="lg"
-              variant="flat"
-              className="bg-white/15 backdrop-blur-sm text-white font-semibold px-8 py-6 text-lg hover:bg-white/25 transition-all duration-300 border border-white/30"
-              radius="lg"
-              startContent={<Icon icon="lucide:smartphone" />}
-            >
-              Download the App
-            </Button>
-          </div>
+         </div> */}
 
           {/* Interactive Features Mention */}
           <motion.div 

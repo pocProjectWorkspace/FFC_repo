@@ -197,45 +197,7 @@ export const HeroSection = () => {
             Welcome to Family First Café, where every cup of coffee and every shared meal is designed to bring families closer. Our founder, Chairman Sunny Varkey, believes deeply in the importance of strong families in building compassionate communities. Family First Café is our answer to the busy, disconnected world — a place where parents, children, grandparents, and caregivers can all feel at home.
           </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Button
-              size="lg"
-              className="bg-white font-semibold px-8 py-4 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-              style={{ backgroundColor: 'white', color: '#983a45' }}
-              radius="lg"
-            >
-              <Icon icon="lucide:map-pin" className="text-xl mr-2" />
-              Find a Café Near You
-            </Button>
-            
-            <Button
-              size="lg"
-              variant="bordered"
-              className="border-2 border-white text-white font-semibold px-8 py-4 text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-              radius="lg"
-            >
-              <Icon icon="lucide:utensils" className="text-xl mr-2" />
-              Explore the Menu
-            </Button>
-
-            <Button
-              size="lg"
-              variant="flat"
-              className="bg-white/15 backdrop-blur-sm text-white font-semibold px-8 py-4 text-lg hover:bg-white/25 transition-all duration-300 border border-white/30"
-              radius="lg"
-            >
-              <Icon icon="lucide:smartphone" className="text-xl mr-2" />
-              Download the App - coming soon
-            </Button>
-          </motion.div>
-
-          {/* Optional: Scroll Down Indicator */}
+         {/* Optional: Scroll Down Indicator */}
           <motion.div
             className="flex flex-col items-center mt-8"
             initial={{ opacity: 0 }}

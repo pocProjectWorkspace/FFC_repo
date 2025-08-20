@@ -9,7 +9,7 @@ export const SingleOriginDiscovery = () => {
     description: "Floral beginnings from the birthplace of coffee",
     notes: ["Jasmine", "Bergamot", "Lemon zest", "Tea-like finish"],
     brewMethod: "V60 pour-over",
-    image: "/coffee-hero/coffees-hero-4.jpg",
+    image: "/coffees/coffees-hero-4.jpg",
     region: "Yirgacheffe, Ethiopia",
     processing: "Washed",
     altitude: "1,700-2,200m"
@@ -138,7 +138,7 @@ export const SingleOriginDiscovery = () => {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                {/* <div className="flex flex-col sm:flex-row gap-3 pt-4">
                   <Button 
                     size="lg"
                     className="bg-white font-semibold hover:bg-rose-50 transition-all duration-300"
@@ -158,7 +158,7 @@ export const SingleOriginDiscovery = () => {
                   >
                     Watch Brewing Guide
                   </Button>
-                </div>
+                </div> */}
               </CardBody>
             </div>
           </Card>

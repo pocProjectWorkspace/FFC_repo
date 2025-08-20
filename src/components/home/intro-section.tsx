@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 export const MissionSection = () => {
   return (
@@ -172,25 +173,6 @@ export const MissionSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <Button 
-              size="lg"
-              className="bg-white font-semibold px-8 py-6 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-              style={{ backgroundColor: 'white', color: '#983a45' }}
-              radius="lg"
-              startContent={<Icon icon="lucide:calendar" />}
-            >
-              Join Our Family Events
-            </Button>
-            
-            <Button 
-              size="lg"
-              variant="bordered"
-              className="border-2 border-white text-white font-semibold px-8 py-6 text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-              radius="lg"
-              endContent={<Icon icon="lucide:arrow-right" />}
-            >
-              Explore All Activities
-            </Button>
           </motion.div>
         </div>
       </div>

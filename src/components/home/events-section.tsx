@@ -229,15 +229,6 @@ export const EventsSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <Button
-            size="lg"
-            className="bg-white font-semibold px-8 py-4 text-lg hover:bg-rose-50 transition-all duration-300 shadow-xl hover:scale-105"
-            style={{ backgroundColor: 'white', color: '#983a45' }}
-            radius="lg"
-          >
-            <Icon icon="lucide:calendar" className="text-xl mr-2" />
-            View All Events
-          </Button>
         </motion.div>
       </div>
     </section>

@@ -171,26 +171,7 @@ export const FounderMessage = () => {
                   transition={{ duration: 0.8, delay: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.button
-                      className="px-6 py-3 bg-white text-pomegranate-700 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={{ color: '#983a45' }}
-                    >
-                      <Icon icon="lucide:map-pin" className="inline mr-2" />
-                      Visit Our Cafés
-                    </motion.button>
-                    <motion.button
-                      className="px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Icon icon="lucide:play-circle" className="inline mr-2" />
-                      Watch Our Journey
-                    </motion.button>
-                  </div>
-                </motion.div>
+               </motion.div>
               </div>
             </motion.div>
           </div>

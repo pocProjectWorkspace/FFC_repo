@@ -174,26 +174,6 @@ export const MissionValues = () => {
               Visit one of our café locations and discover how we bring these values to life in every interaction, 
               every meal, and every moment you spend with us.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="px-8 py-4 bg-white text-pomegranate-700 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ color: '#983a45' }}
-              >
-                <Icon icon="lucide:map-pin" className="inline mr-2" />
-                Find Our Locations
-              </motion.button>
-              <motion.button
-                className="px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Icon icon="lucide:calendar" className="inline mr-2" />
-                Book Your Visit
-              </motion.button>
-            </div>
           </motion.div>
 
           {/* Impact Statistics */}

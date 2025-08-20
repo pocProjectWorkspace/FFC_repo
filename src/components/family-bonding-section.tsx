@@ -173,29 +173,6 @@ export const FamilyBondingSection = () => {
             </div>
           </div>
         </motion.div>
-        
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-16">
-          <Button 
-            color="primary" 
-            radius="full"
-            size="lg"
-            className="font-medium shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6"
-            startContent={<Icon icon="lucide:calendar" />}
-          >
-            Join Our Family Programs
-          </Button>
-          <Button 
-            variant="flat"
-            color="primary"
-            radius="full"
-            size="lg"
-            className="font-medium transition-all duration-300 px-8 py-6"
-            endContent={<Icon icon="lucide:arrow-right" />}
-          >
-            Explore All Activities
-          </Button>
-        </div>
       </div>
     </section>
   );

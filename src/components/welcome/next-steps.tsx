@@ -91,7 +91,7 @@ export const NextSteps = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
                   className="bg-white text-pomegranate-700 hover:bg-white/90 font-semibold px-8 py-3 text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -112,7 +112,7 @@ export const NextSteps = () => {
                 >
                   Find GEMS Locations
                 </Button>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
