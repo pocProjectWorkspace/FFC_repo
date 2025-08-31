@@ -18,19 +18,40 @@ export default function App() {
         <Navbar />
         <main>
           <Routes>
+            {/* Main Routes - Accept both with and without trailing slashes */}
             <Route path="/" element={<HomePage />} />
+            
+            {/* About */}
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/about/" element={<AboutPage />} />
+            
+            {/* Cafes */}
             <Route path="/cafes" element={<CafesPage />} />
+            <Route path="/cafes/" element={<CafesPage />} />
+            
+            {/* Coffees */}
             <Route path="/coffees" element={<CoffeesPage />} />
+            <Route path="/coffees/" element={<CoffeesPage />} />
+            
+            {/* Locations */}
             <Route path="/locations" element={<LocationsPage />} />
+            <Route path="/locations/" element={<LocationsPage />} />
+            
+            {/* Events */}
             <Route path="/events" element={<EventsPage />} />
+            <Route path="/events/" element={<EventsPage />} />
+            
+            {/* GAD */}
             <Route path="/GAD" element={<GADPage />} />
+            <Route path="/GAD/" element={<GADPage />} />
+            
+            {/* Welcome */}
             <Route path="/welcome" element={<WelcomePage />} />
+            <Route path="/welcome/" element={<WelcomePage />} />
+            
             {/* Future routes */}
             {/* <Route path="/shop" element={<ShopPage />} /> */}
-            {/* <Route path="/activities" element={<ActivitiesPage />} /> */}
-            {/* <Route path="/news" element={<NewsPage />} /> */}
-            {/* <Route path="/contact" element={<ContactPage />} /> */}
+            {/* <Route path="/shop/" element={<ShopPage />} /> */}
           </Routes>
         </main>
         <Footer />
