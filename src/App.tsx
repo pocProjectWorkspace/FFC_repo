@@ -10,6 +10,7 @@ import LocationsPage from "./pages/LocationsPage";
 import EventsPage from "./pages/EventsPage";
 import GADPage from "./pages/GADPage";
 import WelcomePage from "./components/welcome/WelcomePage";
+import ResourcesPage from "./pages/ResourcesPage";
 
 export default function App() {
   return (
@@ -40,6 +41,10 @@ export default function App() {
             {/* Events */}
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/" element={<EventsPage />} />
+            
+            {/* Resources */}
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/resources/" element={<ResourcesPage />} />
             
             {/* GAD */}
             <Route path="/GAD" element={<GADPage />} />
