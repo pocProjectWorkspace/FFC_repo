@@ -11,6 +11,10 @@ import EventsPage from "./pages/EventsPage";
 import GADPage from "./pages/GADPage";
 import WelcomePage from "./components/welcome/WelcomePage";
 import ResourcesPage from "./pages/ResourcesPage";
+import ActivationsPage from "./pages/ActivationsPage";
+import MonthlyThemesPage from "./pages/MonthlyThemesPage";
+import SeptemberThemePage from "./pages/SeptemberThemePage";
+import CommunityPage from "./pages/CommunityPage";
 
 export default function App() {
   return (
@@ -53,10 +57,22 @@ export default function App() {
             {/* Welcome */}
             <Route path="/welcome" element={<WelcomePage />} />
             <Route path="/welcome/" element={<WelcomePage />} />
+
+            {/* Monthly Themes */}
+            <Route path="/monthly-themes" element={<MonthlyThemesPage />} />
+            <Route path="/monthly-themes/september" element={<SeptemberThemePage />} />
             
+            {/* Our Community */}
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/community/" element={<CommunityPage />} />
+
             {/* Future routes */}
             {/* <Route path="/shop" element={<ShopPage />} /> */}
             {/* <Route path="/shop/" element={<ShopPage />} /> */}
+
+            {/*Activations */}
+            <Route path="/activations" element={<ActivationsPage />} />
+            <Route path="/activations/" element={<ActivationsPage />} />
           </Routes>
         </main>
         <Footer />

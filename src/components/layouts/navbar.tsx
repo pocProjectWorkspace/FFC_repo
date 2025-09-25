@@ -26,6 +26,10 @@ export const Navbar = () => {
     { name: "Coffee", path: "/coffees" },
     { name: "Locations", path: "/locations" },
     { name: "Events", path: "/events" },
+    { name: "Activations", path: "/activations" },
+    { name: "Resources", path: "/resources" },
+    { name: "Monthly Themes", path: "/monthly-themes" },
+    { name: "Community", path: "/community" }
   ];
 
   return (
