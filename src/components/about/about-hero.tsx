@@ -123,24 +123,20 @@ export const AboutHero = () => {
 
  {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-white/20"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20 pt-12 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">3+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">30+</div>
               <div className="text-white/80 text-sm uppercase tracking-wider">Café Locations</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">1000+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">40,000+</div>
               <div className="text-white/80 text-sm uppercase tracking-wider">Families Connected</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">4</div>
-              <div className="text-white/80 text-sm uppercase tracking-wider">Signature Blends</div>
-            </div>
-          </motion.div>
+            </motion.div>
         </div>
       </div>
     </section>
