@@ -1,20 +1,105 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 
 export const CoffeesHero = () => {
+  // Carousel state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of coffee hero images
+  const heroImages = [
+    '/coffees/coffees-hero-1.jpg',
+    '/coffees/coffees-hero-2.jpg',
+    '/coffees/coffees-hero-3.jpg',
+    '/coffees/coffees-hero-4.jpg'
+  ];
+
+  // Auto-rotate carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  // Manual navigation functions
+  const goToPrevious = () => {
+    setCurrentImageIndex(
+      currentImageIndex === 0 ? heroImages.length - 1 : currentImageIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex(
+      currentImageIndex === heroImages.length - 1 ? 0 : currentImageIndex + 1
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image from local folder */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('/public/coffees/coffee-hero-bg.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+      {/* Carousel Background Images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImageIndex}
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        >
+          <img 
+            src={heroImages[currentImageIndex]}
+            alt={`Coffee hero image ${currentImageIndex + 1}`}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-bottom from-black/60 via-black/50 to-black/70"></div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 group"
+        aria-label="Previous image"
       >
+        <Icon 
+          icon="lucide:chevron-left" 
+          className="text-white text-xl md:text-2xl group-hover:scale-110 transition-transform" 
+        />
+      </button>
+      
+      <button
+        onClick={goToNext}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 group"
+        aria-label="Next image"
+      >
+        <Icon 
+          icon="lucide:chevron-right" 
+          className="text-white text-xl md:text-2xl group-hover:scale-110 transition-transform" 
+        />
+      </button>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 ${
+              index === currentImageIndex
+                ? 'w-8 h-2 bg-white'
+                : 'w-2 h-2 bg-white/50 hover:bg-white/70'
+            } rounded-full`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Content */}
@@ -57,22 +142,6 @@ export const CoffeesHero = () => {
             Explore our wide selection of café favorites and discover unique Family First coffee blends—designed 
             to bring people closer, one cup at a time.
           </motion.p>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            className="mt-12 flex flex-col items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <span className="text-white/70 text-sm mb-2">Discover our offerings</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Icon icon="lucide:chevron-down" className="text-white text-2xl" />
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

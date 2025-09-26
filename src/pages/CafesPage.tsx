@@ -1,7 +1,7 @@
 import React from "react";
 import { CafesHero } from "../components/cafes/cafes-hero";
 import { DesignedForMomentsSection } from "../components/cafes/designed-for-moments-section";
-import { MeetOurChampionsSection } from "../components/cafes/meet-our-champions-section";
+//import { MeetOurChampionsSection } from "../components/cafes/meet-our-champions-section";
 
 const CafesPage = () => {
   return (
@@ -12,8 +12,6 @@ const CafesPage = () => {
       {/* Designed for Meaningful Moments Section */}
       <DesignedForMomentsSection />
       
-      {/* Meet Our Champions Section */}
-      <MeetOurChampionsSection />
     </div>
   );
 };

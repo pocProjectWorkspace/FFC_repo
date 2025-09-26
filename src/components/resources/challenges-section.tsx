@@ -20,7 +20,7 @@ export const ChallengesSection = () => {
       task: "Say something kind to someone you don't know (e.g., 'I love your smile').",
       treasure: "Builds confidence and spreads positivity.",
       gift: "A short sweet note or video saying what you said and how the person reacted.",
-      image: "/resources/challenges/compliment-stranger.jpg",
+      image: "/resources/compliment-a-stranger.png",
       icon: "solar:heart-bold"
     },
     {
@@ -29,7 +29,7 @@ export const ChallengesSection = () => {
       task: "Make a phone or video call to your grandparents to ask about their day or share something exciting.",
       treasure: "Strengthens family connections across generations.",
       gift: "A photo or screenshot of the call, or a drawing of what you talked about.",
-      image: "/resources/challenges/call-grandparents.jpg",
+      image: "/resources/call-your-grandparents.png",
       icon: "solar:phone-bold"
     },
     {
@@ -38,7 +38,7 @@ export const ChallengesSection = () => {
       task: "Plant a seed or small plant in a pot or garden.",
       treasure: "Teaches care for the environment and responsibility.",
       gift: "A photo of your plant with your name and the date planted.",
-      image: "/resources/challenges/plant-green.jpg",
+      image: "/resources/plant-something-green.png",
       icon: "solar:leaf-bold"
     },
     {
@@ -47,7 +47,7 @@ export const ChallengesSection = () => {
       task: "Create a handmade card for someone who helps you (e.g., a teacher, cleaner, security guard).",
       treasure: "Teaches gratitude and artistic expression.",
       gift: "Photo of the card and the person receiving it, or the card being placed somewhere.",
-      image: "/resources/challenges/thank-you-card.jpg",
+      image: "/resources/make-a-card.png",
       icon: "solar:card-bold"
     }
   ];

@@ -28,16 +28,10 @@ const ActivationsPage = () => {
       {/* Conditional Content Based on Active Tab */}
       {activeTab === "activations" && (
         <>
-          {/* 3. Leadership Gemstones - ONLY for 4-8 age group */}
-          {selectedAgeGroup === "4-8" && (
-            <LeadershipGemstones />
-          )}
+          {/* 3. Leadership Gemstones - Now shows for ALL age groups with different content */}
+          <LeadershipGemstones selectedAgeGroup={selectedAgeGroup} />
           
-          {/* 4. Activations Menu - Shows age-specific image and activities */}
-          {/* This displays the appropriate content based on selectedAgeGroup:
-              - 4-8: Shows activities from Image 1
-              - 9-13: Shows activities from Image 2  
-              - 14-18: Shows activities from Image 3 */}
+          {/* 4. Activations Menu - Shows age-specific activities */}
           <ActivationsMenu selectedAgeGroup={selectedAgeGroup} />
         </>
       )}

@@ -44,7 +44,7 @@ export const LoyaltyPrograms = () => {
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
                     <img 
-                      src="/community/loyalty-card.png" 
+                      src="/community/LoyaltyCard.png" 
                       alt="Family First Café Loyalty Card"
                       className="w-full max-w-sm mx-auto"
                     />

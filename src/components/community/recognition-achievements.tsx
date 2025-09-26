@@ -47,7 +47,7 @@ export const RecognitionAchievements = () => {
                 
                 <div className="mb-6">
                   <img 
-                    src="/community/students-action.jpg" 
+                    src="/community/Students-in-action.png" 
                     alt="Students working in cafe"
                     className="w-full rounded-xl"
                   />

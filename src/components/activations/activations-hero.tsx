@@ -7,10 +7,11 @@ export const ActivationsHero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="/activations/hero-bg.jpg" 
+          src="/activations/hero.png" 
           alt="Children playing together"
           className="w-full h-full object-cover"
         />
+        {/* Uniform overlay for all hero sections */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
       </div>
 
@@ -35,7 +36,7 @@ export const ActivationsHero = () => {
             families connect in meaningful ways. From creative challenges to community projects, there's always 
             something new to discover.
           </p>
-          <p className="text-lg text-white/90 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
             Everyone is welcome—parents, kids, grandparents, and friends. Whether you join for a quick activity 
             or spend the whole afternoon, you'll always find ways to laugh, learn, and grow together.
           </p>

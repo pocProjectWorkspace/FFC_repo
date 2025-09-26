@@ -87,102 +87,103 @@ export const ThemeCalendar: React.FC<ThemeCalendarProps> = ({
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Card className="max-w-4xl mx-auto bg-pomegranate-700/50 border border-white/20 backdrop-blur-sm">
-            <CardBody className="p-8">
-              <div className="flex flex-col md:flex-row items-start gap-6 mb-8">
+          <Card className="max-w-5xl mx-auto bg-pomegranate-700/40 border border-white/30 backdrop-blur-sm">
+            <CardBody className="p-10">
+              {/* Header with Logo and Instructions */}
+              <div className="flex flex-col md:flex-row items-start gap-8 mb-10">
+                {/* FFC Logo */}
                 <div className="flex-shrink-0">
                   <img 
-                    src="/logo/Family First Logo.png" 
+                    src="/logo/FFC Logo black.png" 
                     alt="Family First Café"
-                    className="w-16 h-16 md:w-20 md:h-20 filter brightness-0 invert"
+                    className="w-24 h-24 md:w-32 md:h-32 filter brightness-0 invert opacity-90"
                   />
                 </div>
-                <div className="flex-grow">
-                  <h3 className="text-lg md:text-xl font-semibold text-white leading-relaxed">
+                
+                {/* Instructions Text */}
+                <div className="flex-grow pt-4">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white leading-relaxed">
                     Select the month we are in, select the age group for the children, 
                     ask the cafe staff for the Activations materials and you are all set! Enjoy!
                   </h3>
                 </div>
               </div>
 
-              {/* Dropdowns Row */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {/* Monthly Theme Dropdown */}
-                <div>
-                  <label className="text-white mb-2 block font-medium">Monthly Theme</label>
-                  <Select
-                    selectedKeys={[selectedMonth]}
-                    onSelectionChange={(keys) => {
-                      const selected = Array.from(keys)[0] as string;
-                      if (selected) setSelectedMonth(selected);
-                    }}
-                    className="bg-pomegranate-800/50"
-                    classNames={{
-                      trigger: "bg-pomegranate-800/50 text-white border border-white/20 hover:bg-pomegranate-800/70 h-12",
-                      value: "text-white",
-                      popoverContent: "bg-pomegranate-700 border border-white/20",
-                      listbox: "bg-pomegranate-700",
-                      base: "bg-pomegranate-800/50"
-                    }}
-                    aria-label="Select monthly theme"
-                    placeholder="Select a month"
-                  >
-                    {monthlyThemes.map((month) => (
-                      <SelectItem 
-                        key={month.key}
-                        classNames={{
-                          base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white data-[selectable=true]:focus:bg-pomegranate-600 data-[pressed=true]:opacity-70",
-                        }}
-                      >
-                        {month.label}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                </div>
+              {/* Dropdowns Section */}
+              <div className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Monthly Theme Dropdown */}
+                  <div>
+                    <label className="text-white text-lg font-semibold mb-3 block">
+                      Monthly Theme
+                    </label>
+                    <Select
+                      selectedKeys={[selectedMonth]}
+                      onSelectionChange={(keys) => {
+                        const selected = Array.from(keys)[0] as string;
+                        if (selected) setSelectedMonth(selected);
+                      }}
+                      className="w-full"
+                      classNames={{
+                        trigger: "bg-pomegranate-800/60 text-white border-2 border-white/30 hover:bg-pomegranate-800/80 h-14 text-lg font-medium rounded-xl",
+                        value: "text-white",
+                        popoverContent: "bg-pomegranate-700 border-2 border-white/30",
+                        listbox: "bg-pomegranate-700",
+                        base: "w-full"
+                      }}
+                      aria-label="Select monthly theme"
+                      placeholder="September"
+                    >
+                      {monthlyThemes.map((month) => (
+                        <SelectItem 
+                          key={month.key}
+                          className="text-white"
+                          classNames={{
+                            base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white data-[selectable=true]:focus:bg-pomegranate-600 data-[pressed=true]:opacity-70",
+                          }}
+                        >
+                          {month.label}
+                        </SelectItem>
+                      ))}
+                    </Select>
+                  </div>
 
-                {/* Age Group Dropdown */}
-                <div>
-                  <label className="text-white mb-2 block font-medium">Age Group</label>
-                  <Select
-                    selectedKeys={[selectedAgeGroup]}
-                    onSelectionChange={(keys) => {
-                      const selected = Array.from(keys)[0] as string;
-                      if (selected) setSelectedAgeGroup(selected);
-                    }}
-                    className="bg-pomegranate-800/50"
-                    classNames={{
-                      trigger: "bg-pomegranate-800/50 text-white border border-white/20 hover:bg-pomegranate-800/70 h-12",
-                      value: "text-white",
-                      popoverContent: "bg-pomegranate-700 border border-white/20",
-                      listbox: "bg-pomegranate-700",
-                      base: "bg-pomegranate-800/50"
-                    }}
-                    aria-label="Select age group"
-                    placeholder="Select age group"
-                  >
-                    {ageGroups.map((group) => (
-                      <SelectItem 
-                        key={group.key}
-                        classNames={{
-                          base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white data-[selectable=true]:focus:bg-pomegranate-600 data-[pressed=true]:opacity-70",
-                        }}
-                      >
-                        {group.label}
-                      </SelectItem>
-                    ))}
-                  </Select>
+                  {/* Age Group Dropdown */}
+                  <div>
+                    <label className="text-white text-lg font-semibold mb-3 block">
+                      Age Group
+                    </label>
+                    <Select
+                      selectedKeys={[selectedAgeGroup]}
+                      onSelectionChange={(keys) => {
+                        const selected = Array.from(keys)[0] as string;
+                        if (selected) setSelectedAgeGroup(selected);
+                      }}
+                      className="w-full"
+                      classNames={{
+                        trigger: "bg-pomegranate-800/60 text-white border-2 border-white/30 hover:bg-pomegranate-800/80 h-14 text-lg font-medium rounded-xl",
+                        value: "text-white",
+                        popoverContent: "bg-pomegranate-700 border-2 border-white/30",
+                        listbox: "bg-pomegranate-700",
+                        base: "w-full"
+                      }}
+                      aria-label="Select age group"
+                      placeholder="4-8 years"
+                    >
+                      {ageGroups.map((group) => (
+                        <SelectItem 
+                          key={group.key}
+                          className="text-white"
+                          classNames={{
+                            base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white data-[selectable=true]:focus:bg-pomegranate-600 data-[pressed=true]:opacity-70",
+                          }}
+                        >
+                          {group.label}
+                        </SelectItem>
+                      ))}
+                    </Select>
+                  </div>
                 </div>
-              </div>
-
-              {/* Alignment Button */}
-              <div className="text-center">
-                <Button
-                  size="lg"
-                  className="bg-pomegranate-800/50 text-white border border-white/20 hover:bg-pomegranate-800/70 transition-all px-8"
-                  startContent={<Icon icon="lucide:sparkles" className="text-lg" />}
-                >
-                  Alignment
-                </Button>
               </div>
             </CardBody>
           </Card>

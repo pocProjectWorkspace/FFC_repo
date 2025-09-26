@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Select, SelectItem, Accordion, AccordionItem, Checkbox } from "@heroui/react";
+import { Input, Select, SelectItem } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { BookDetail } from "./book-detail";
 import { motion } from "framer-motion";
@@ -73,9 +73,10 @@ export const BooksSection = () => {
   const filteredBooks = books.filter(book => {
     const matchesBook = !searchBook || book.title.toLowerCase().includes(searchBook.toLowerCase());
     const matchesAuthor = !searchAuthor || book.author.toLowerCase().includes(searchAuthor.toLowerCase());
+    const matchesUser = book.forAge.toLowerCase() === selectedUser.toLowerCase();
     const matchesTheme = !selectedTheme || book.monthlyTheme === selectedTheme;
     const matchesGrade = selectedGrades.length === 0 || selectedGrades.some(grade => book.grade.includes(grade));
-    return matchesBook && matchesAuthor && matchesTheme && matchesGrade;
+    return matchesBook && matchesAuthor && matchesUser && matchesTheme && matchesGrade;
   });
 
   // Group books alphabetically
@@ -102,98 +103,132 @@ export const BooksSection = () => {
 
         <div className="flex gap-8">
           {/* Filters Sidebar */}
-          <div className="w-64 space-y-4">
-            <h3 className="text-white font-bold text-lg mb-4">Filters</h3>
-            
-            {/* Search Book */}
-            <Input
-              placeholder="Search Book"
-              value={searchBook}
-              onChange={(e) => setSearchBook(e.target.value)}
-              startContent={<Icon icon="solar:magnifer-linear" className="text-white/50" />}
-              classNames={{
-                input: "text-white placeholder:text-white/50",
-                inputWrapper: "bg-pomegranate-700/50 border-white/30 hover:border-white/50"
-              }}
-            />
-
-            {/* Search Author */}
-            <Input
-              placeholder="Search Author"
-              value={searchAuthor}
-              onChange={(e) => setSearchAuthor(e.target.value)}
-              startContent={<Icon icon="solar:magnifer-linear" className="text-white/50" />}
-              classNames={{
-                input: "text-white placeholder:text-white/50",
-                inputWrapper: "bg-pomegranate-700/50 border-white/30 hover:border-white/50"
-              }}
-            />
-
-            {/* User Type */}
-            <Select
-              label="User"
-              selectedKeys={[selectedUser]}
-              onSelectionChange={(keys) => setSelectedUser(Array.from(keys)[0] as string)}
-              classNames={{
-                trigger: "bg-pomegranate-700/50 border-white/30 text-white hover:border-white/50",
-                label: "text-white/70",
-                value: "text-white"
-              }}
-            >
-              <SelectItem key="children">Children</SelectItem>
-              <SelectItem key="adults">Adults</SelectItem>
-            </Select>
-
-            {/* Monthly Theme */}
-            <Select
-              label="Monthly Theme"
-              placeholder="Select theme"
-              selectedKeys={selectedTheme ? [selectedTheme] : []}
-              onSelectionChange={(keys) => setSelectedTheme(Array.from(keys)[0] as string || "")}
-              classNames={{
-                trigger: "bg-pomegranate-700/50 border-white/30 text-white hover:border-white/50",
-                label: "text-white/70",
-                value: "text-white"
-              }}
-            >
-              {monthlyThemes.map((theme) => (
-                <SelectItem key={theme}>{theme}</SelectItem>
-              ))}
-            </Select>
-
-            {/* Year/Grade Accordion */}
-            <Accordion 
-              className="bg-pomegranate-700/50 rounded-lg"
-              itemClasses={{
-                title: "text-white",
-                content: "text-white",
-                trigger: "text-white"
-              }}
-            >
-              <AccordionItem key="grades" title="Year/Grade">
-                <div className="space-y-2 max-h-60 overflow-y-auto">
-                  {grades.map((grade) => (
-                    <Checkbox
-                      key={grade}
-                      isSelected={selectedGrades.includes(grade)}
-                      onValueChange={(isSelected) => {
-                        if (isSelected) {
-                          setSelectedGrades([...selectedGrades, grade]);
-                        } else {
-                          setSelectedGrades(selectedGrades.filter(g => g !== grade));
-                        }
-                      }}
+          <div className="w-72">
+            <div className="bg-pomegranate-700/40 rounded-2xl p-6 border border-white/20">
+              <h3 className="text-white font-bold text-xl mb-6">Filters</h3>
+              
+              <div className="space-y-5">
+                {/* Search Book */}
+                <div>
+                  <label className="text-white/80 text-sm font-medium mb-2 block">Search Book</label>
+                  <div className="relative">
+                    <Input
+                      placeholder=""
+                      value={searchBook}
+                      onChange={(e) => setSearchBook(e.target.value)}
                       classNames={{
-                        label: "text-white/80 text-sm",
-                        wrapper: "border-white/50"
+                        input: "text-white placeholder:text-white/40 pr-10",
+                        inputWrapper: "bg-pomegranate-800/50 border border-white/30 hover:border-white/50 data-[hover=true]:bg-pomegranate-800/60"
                       }}
-                    >
-                      {grade}
-                    </Checkbox>
-                  ))}
+                    />
+                    <Icon icon="lucide:search" className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 text-lg pointer-events-none" />
+                  </div>
                 </div>
-              </AccordionItem>
-            </Accordion>
+
+                {/* Search Author */}
+                <div>
+                  <label className="text-white/80 text-sm font-medium mb-2 block">Search Author</label>
+                  <div className="relative">
+                    <Input
+                      placeholder=""
+                      value={searchAuthor}
+                      onChange={(e) => setSearchAuthor(e.target.value)}
+                      classNames={{
+                        input: "text-white placeholder:text-white/40 pr-10",
+                        inputWrapper: "bg-pomegranate-800/50 border border-white/30 hover:border-white/50 data-[hover=true]:bg-pomegranate-800/60"
+                      }}
+                    />
+                    <Icon icon="lucide:search" className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 text-lg pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* User Type */}
+                <div>
+                  <label className="text-white/80 text-sm font-medium mb-3 block">User</label>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selectedUser === "children"}
+                        onChange={() => setSelectedUser("children")}
+                        className="w-4 h-4 rounded border-white/50 bg-transparent checked:bg-white checked:border-white"
+                      />
+                      <span className="text-white/90">Children</span>
+                    </label>
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selectedUser === "adults"}
+                        onChange={() => setSelectedUser("adults")}
+                        className="w-4 h-4 rounded border-white/50 bg-transparent checked:bg-white checked:border-white"
+                      />
+                      <span className="text-white/90">Adults</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Monthly Theme Dropdown */}
+                <div>
+                  <Select
+                    label="Monthly Theme"
+                    placeholder="Select theme"
+                    selectedKeys={selectedTheme ? [selectedTheme] : []}
+                    onSelectionChange={(keys) => setSelectedTheme(Array.from(keys)[0] as string || "")}
+                    className="max-w-full"
+                    classNames={{
+                      trigger: "bg-pomegranate-800/50 border border-white/30 text-white hover:border-white/50 h-11",
+                      label: "text-white/80",
+                      value: "text-white",
+                      popoverContent: "bg-pomegranate-700 border-2 border-white/30",
+                      listbox: "bg-pomegranate-700"
+                    }}
+                  >
+                    {monthlyThemes.map((theme) => (
+                      <SelectItem 
+                        key={theme}
+                        className="text-white"
+                        classNames={{
+                          base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white"
+                        }}
+                      >
+                        {theme}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
+
+                {/* Year/Grade Dropdown */}
+                <div>
+                  <Select
+                    label="Year/Grade"
+                    placeholder="Select grade"
+                    selectedKeys={selectedGrades}
+                    onSelectionChange={(keys) => setSelectedGrades(Array.from(keys) as string[])}
+                    selectionMode="multiple"
+                    className="max-w-full"
+                    classNames={{
+                      trigger: "bg-pomegranate-800/50 border border-white/30 text-white hover:border-white/50 h-11",
+                      label: "text-white/80",
+                      value: "text-white",
+                      popoverContent: "bg-pomegranate-700 border-2 border-white/30",
+                      listbox: "bg-pomegranate-700"
+                    }}
+                  >
+                    {grades.map((grade) => (
+                      <SelectItem 
+                        key={grade}
+                        className="text-white"
+                        classNames={{
+                          base: "data-[hover=true]:bg-pomegranate-600 data-[hover=true]:text-white"
+                        }}
+                      >
+                        {grade}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Books Grid */}

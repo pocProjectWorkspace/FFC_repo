@@ -72,7 +72,7 @@ const IntroductionTab = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img 
-                src="/monthly-themes/children-circle.jpg" 
+                src="/monthly-themes/children-circle.png" 
                 alt="Children standing in a circle"
                 className="w-full rounded-xl"
               />
@@ -136,7 +136,7 @@ const MeaningTab = () => {
         {/* Image at the top */}
         <div className="w-full mb-8">
           <img 
-            src="/monthly-themes/child-binoculars.jpg" 
+            src="/monthly-themes/meaning.png" 
             alt="Child looking through binoculars"
             className="w-full rounded-xl max-h-96 object-cover"
           />
@@ -147,7 +147,7 @@ const MeaningTab = () => {
           <CardBody className="p-8 md:p-12">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-3xl font-bold text-white">Respect</h3>
-              <img src="/logo/Family First Logo.png" alt="Family First Café" 
+              <img src="/logo/FFC Logo black.png" alt="Family First Café" 
                 className="w-20 h-20 filter brightness-0 invert opacity-50" />
             </div>
             
@@ -196,7 +196,7 @@ const MeaningTab = () => {
           <CardBody className="p-8 md:p-12">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-3xl font-bold text-white">Dignity</h3>
-              <img src="/logo/Family First Logo.png" alt="Family First Café" 
+              <img src="/logo/FFC Logo black.png" alt="Family First Café" 
                 className="w-20 h-20 filter brightness-0 invert opacity-50" />
             </div>
             
@@ -255,7 +255,7 @@ const PracticeTab = () => {
         {/* Image at the top */}
         <div className="w-full mb-8">
           <img 
-            src="/monthly-themes/mother-daughter.jpg" 
+            src="/monthly-themes/respect.png" 
             alt="Mother and daughter bonding"
             className="w-full rounded-xl max-h-96 object-cover"
           />

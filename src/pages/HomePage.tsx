@@ -4,6 +4,7 @@ import { WhyBondingMattersSection } from "../components/home/why-bonding-matters
 import { CreatingBondingMomentsSection } from "../components/home/creating-bonding-moments-section";
 import { FamilyTableSection } from "../components/home/family-table-section";
 import { OurCommunitySection } from "../components/home/our-community-section";
+import { AppDownloadSection } from "../components/home/app-download-section";
 
 const HomePage = () => {
   return (
@@ -22,6 +23,9 @@ const HomePage = () => {
       
       {/* Our Community - Purpose Section */}
       <OurCommunitySection />
+
+      {/* App Download section */}
+      <AppDownloadSection />
     </>
   );
 };

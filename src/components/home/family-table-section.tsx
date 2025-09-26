@@ -8,23 +8,19 @@ export const FamilyTableSection = () => {
   const menuCategories = [
     {
       title: "Hot Drinks",
-      image: "/menu/hot-drinks.jpg",
-      icon: "solar:cup-hot-linear"
+      image: "/home/Hotdrink.png"
     },
     {
       title: "Cold Drinks", 
-      image: "/menu/cold-drinks.jpg",
-      icon: "solar:cup-linear"
+      image: "/home/Colddrink.png"
     },
     {
       title: "Merchandise",
-      image: "/menu/merchandise.jpg",
-      icon: "lucide:shopping-bag"
+      image: "/home/Merchandise.png"
     },
     {
       title: "Food",
-      image: "/menu/food.jpg",
-      icon: "lucide:utensils"
+      image: "/home/Food.png"
     }
   ];
 
@@ -84,19 +80,12 @@ export const FamilyTableSection = () => {
               <Card className="bg-white/95 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer">
                 <CardBody className="p-0">
                   {/* Image Container */}
-                  <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-rose-100 to-rose-50">
-                    <div 
-                      className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                      style={{ 
-                        backgroundImage: `url('${category.image}')`,
-                        backgroundColor: '#fef2f2'
-                      }}
-                    >
-                      {/* Fallback Icon */}
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-rose-100/80 to-rose-50/80">
-                        <Icon icon={category.icon} className="text-pomegranate text-5xl" />
-                      </div>
-                    </div>
+                  <div className="aspect-square relative overflow-hidden">
+                    <img 
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                   
                   {/* Title */}

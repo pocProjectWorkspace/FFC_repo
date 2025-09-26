@@ -69,7 +69,7 @@ export const OurInitiatives = () => {
                     </div>
                     <div className="flex justify-center">
                       <img 
-                        src="/community/coffee-cup.jpg" 
+                        src="/community/coffee-cup.png" 
                         alt="Reusable coffee cup"
                         className="w-64 h-64 object-cover rounded-xl"
                       />
@@ -84,7 +84,7 @@ export const OurInitiatives = () => {
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="flex justify-center order-2 md:order-1">
                       <img 
-                        src="/community/student-waiter.jpg" 
+                        src="/community/student-waiter.png" 
                         alt="Student in cafe uniform"
                         className="w-64 h-64 object-cover rounded-xl"
                       />
@@ -161,7 +161,7 @@ export const OurInitiatives = () => {
                     </div>
                     <div className="flex justify-center">
                       <img 
-                        src="/community/cashless-payment.jpg" 
+                        src="/community/cashless-payment.png" 
                         alt="Digital payment"
                         className="w-64 h-64 object-cover rounded-xl"
                       />

@@ -4,20 +4,16 @@ import { motion } from "framer-motion";
 export const MonthlyThemesHero = () => {
   return (
     <section className="relative h-[500px] overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-pomegranate-800 to-pomegranate-600">
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
-
-      {/* Optional background image */}
-      {/* <div className="absolute inset-0">
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <img 
-          src="/monthly-themes/hero-bg.jpg" 
-          alt="Family silhouette at sunset"
+          src="/monthly-themes/hero.png" 
+          alt="Monthly themes calendar"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30"></div>
-      </div> */}
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">

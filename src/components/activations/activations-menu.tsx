@@ -29,13 +29,6 @@ export const ActivationsMenu: React.FC<ActivationsMenuProps> = ({
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Button
-            size="lg"
-            className="bg-pomegranate-800/50 text-white border border-white/20 hover:bg-pomegranate-800/70 transition-all px-8"
-            startContent={<Icon icon="lucide:sparkles" className="text-lg" />}
-          >
-            Everyday Bonds
-          </Button>
         </motion.div>
 
         {/* Title */}

@@ -7,7 +7,7 @@ export const CommunityHero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="/community/hero-bg.jpg" 
+          src="/community/hero.png" 
           alt="Family dining together at cafe"
           className="w-full h-full object-cover"
         />

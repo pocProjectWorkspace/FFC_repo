@@ -1,18 +1,18 @@
 import React from "react";
 import { AboutHero } from "../components/about/about-hero";
 import { FounderMessage } from "../components/about/founder-message";
-import { OurBondingRootsSection } from "../components/about/our-bonding-roots-section";
 import { FamilyBondingMatters } from "../components/about/family-bonding-matters";
-import { OurImpact } from "../components/about/our-impact";
+import { OurMissionValuesSection } from "../components/about/our-mission-values-section";
+import { ReadyToTransformSection } from "../components/about/ready-to-transform-section";
 
 const AboutPage = () => {
   return (
     <>
       <AboutHero />
       <FounderMessage />
-      <OurBondingRootsSection />
       <FamilyBondingMatters />
-      <OurImpact />
+      <OurMissionValuesSection />
+      <ReadyToTransformSection />
     </>
   );
 };

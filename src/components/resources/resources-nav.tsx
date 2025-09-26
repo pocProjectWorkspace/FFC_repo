@@ -37,7 +37,7 @@ export const ResourcesNav = ({ activeSection, setActiveSection }: ResourcesNavPr
             onClick={() => setIsCalendarExpanded(!isCalendarExpanded)}
             className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors rounded-t-2xl"
           >
-            <h3 className="text-white font-semibold text-lg flex items-center gap-2">
+            <h3 className="text-white font-semibold text-lg flex items-center gap-5">
               Family First Cafe - Monthly Themed Calendar
               <Icon 
                 icon={isCalendarExpanded ? "solar:alt-arrow-up-linear" : "solar:alt-arrow-down-linear"} 

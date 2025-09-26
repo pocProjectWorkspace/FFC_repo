@@ -130,7 +130,7 @@ export const GamesSection = () => {
                   
                   <div className="relative group">
                     <img
-                      src="/resources/games/bonding-cards.jpg"
+                      src="/resources/bonding-cards.png"
                       alt="Bonding Cards"
                       className="w-full h-64 object-cover rounded-lg"
                     />

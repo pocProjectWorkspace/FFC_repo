@@ -33,7 +33,7 @@ export const QuizDetail = ({ quiz, onStart, onBack }: QuizDetailProps) => {
         {/* Header Image */}
         <div className="relative h-64 bg-gradient-to-br from-pomegranate-600 to-pomegranate-800">
           <img
-            src="/resources/quizzes/quiz-header.jpg"
+            src="/resources/kindness-counts.png"
             alt={quiz.title}
             className="w-full h-full object-cover opacity-50"
           />

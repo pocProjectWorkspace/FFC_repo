@@ -42,7 +42,7 @@ export const CommunityInvitation = () => {
           >
             <div className="mb-8">
               <img 
-                src="/logo/Family First Logo.png" 
+                src="/logo/FFC Logo black.png" 
                 alt="Family First Café"
                 className="w-32 h-32 filter brightness-0 invert mx-auto md:mx-0 mb-6"
               />

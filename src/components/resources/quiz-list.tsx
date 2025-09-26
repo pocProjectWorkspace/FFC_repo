@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Select, SelectItem, Checkbox } from "@heroui/react";
+import { Input, Checkbox } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { Quiz } from "./quizzes-section";
@@ -8,6 +8,17 @@ interface QuizListProps {
   quizzes: Quiz[];
   onSelectQuiz: (quiz: Quiz) => void;
 }
+
+// Map quiz IDs to specific icons
+const quizIcons: Record<string, string> = {
+  "1": "lucide:heart", // Kindness Counts
+  "2": "lucide:globe", // My Planet, My Home  
+  "3": "lucide:message-circle", // Let's Talk!
+  "4": "lucide:utensils", // Table Manners 101
+  "5": "lucide:handshake", // Respect for All
+  "6": "lucide:users", // The Power of Teamwork
+  "7": "lucide:sparkles" // Gratitude Everyday
+};
 
 export const QuizList = ({ quizzes, onSelectQuiz }: QuizListProps) => {
   const [searchQuiz, setSearchQuiz] = useState("");
@@ -47,45 +58,51 @@ export const QuizList = ({ quizzes, onSelectQuiz }: QuizListProps) => {
 
       <div className="flex gap-8">
         {/* Filters Sidebar */}
-        <div className="w-64 space-y-4">
-          <h3 className="text-white font-bold text-lg mb-4">Filters</h3>
-          
-          {/* Search Quiz */}
-          <Input
-            placeholder="Search Quiz"
-            value={searchQuiz}
-            onChange={(e) => setSearchQuiz(e.target.value)}
-            startContent={<Icon icon="solar:magnifer-linear" className="text-white/50" />}
-            classNames={{
-              input: "text-white placeholder:text-white/50",
-              inputWrapper: "bg-pomegranate-700/50 border-white/30 hover:border-white/50"
-            }}
-          />
+        <div className="w-72">
+          <div className="bg-pomegranate-700/40 rounded-2xl p-6 border border-white/20">
+            <h3 className="text-white font-bold text-xl mb-6">Filters</h3>
+            
+            <div className="space-y-5">
+              {/* Search Quiz */}
+              <div>
+                <label className="text-white/80 text-sm font-medium mb-2 block">Search Quiz</label>
+                <div className="relative">
+                  <Input
+                    placeholder=""
+                    value={searchQuiz}
+                    onChange={(e) => setSearchQuiz(e.target.value)}
+                    classNames={{
+                      input: "text-white placeholder:text-white/40 pr-10",
+                      inputWrapper: "bg-pomegranate-800/50 border border-white/30 hover:border-white/50 data-[hover=true]:bg-pomegranate-800/60"
+                    }}
+                  />
+                  <Icon icon="lucide:search" className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 text-lg pointer-events-none" />
+                </div>
+              </div>
 
-          {/* Monthly Theme Filter */}
-          <div className="bg-pomegranate-700/50 rounded-lg p-4">
-            <h4 className="text-white font-medium mb-3">Monthly Theme</h4>
-            <div className="space-y-2 max-h-60 overflow-y-auto">
-              {themes.map((theme) => (
-                <Checkbox
-                  key={theme}
-                  size="sm"
-                  isSelected={selectedThemes.includes(theme)}
-                  onValueChange={(isSelected) => {
-                    if (isSelected) {
-                      setSelectedThemes([...selectedThemes, theme]);
-                    } else {
-                      setSelectedThemes(selectedThemes.filter(t => t !== theme));
-                    }
-                  }}
-                  classNames={{
-                    label: "text-white/80 text-xs",
-                    wrapper: "border-white/50"
-                  }}
-                >
-                  {theme}
-                </Checkbox>
-              ))}
+              {/* Monthly Theme Filter */}
+              <div>
+                <h4 className="text-white/80 text-sm font-medium mb-3">Monthly Theme</h4>
+                <div className="space-y-2 max-h-60 overflow-y-auto custom-scrollbar">
+                  {themes.map((theme) => (
+                    <label key={theme} className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selectedThemes.includes(theme)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelectedThemes([...selectedThemes, theme]);
+                          } else {
+                            setSelectedThemes(selectedThemes.filter(t => t !== theme));
+                          }
+                        }}
+                        className="w-4 h-4 rounded border-white/50 bg-transparent checked:bg-white checked:border-white"
+                      />
+                      <span className="text-white/80 text-sm">{theme}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -103,9 +120,15 @@ export const QuizList = ({ quizzes, onSelectQuiz }: QuizListProps) => {
                 onClick={() => onSelectQuiz(quiz)}
               >
                 <div className="flex items-start gap-4">
+                  {/* Icon */}
                   <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon icon="solar:question-square-bold" className="text-white text-2xl" />
+                    <Icon 
+                      icon={quizIcons[quiz.id] || "lucide:help-circle"} 
+                      className="text-white text-2xl" 
+                    />
                   </div>
+                  
+                  {/* Content */}
                   <div className="flex-1">
                     <h3 className="text-white font-bold text-xl mb-2 group-hover:text-white/90">
                       {quiz.title}
@@ -117,8 +140,10 @@ export const QuizList = ({ quizzes, onSelectQuiz }: QuizListProps) => {
                       Theme: {quiz.theme}
                     </p>
                   </div>
+                  
+                  {/* Arrow */}
                   <Icon 
-                    icon="solar:arrow-right-linear" 
+                    icon="lucide:arrow-right" 
                     className="text-white/50 text-2xl group-hover:text-white group-hover:translate-x-1 transition-all"
                   />
                 </div>
